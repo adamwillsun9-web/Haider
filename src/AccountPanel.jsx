@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import {supabase} from "./lib/supabase.js";
-export default function AccountPanel({session,onClose,onSignOut}){\n if(!supabase)return <div className="overlay account-overlay"><div className="account-modal"><button className="close" onClick={onClose}>×</button><h2>Backend setup needed</h2><p>Add your Supabase project URL and anon key to .env.local, then restart the app.</p></div></div>;
+export default function AccountPanel({session,onClose,onSignOut}){
+ if(!supabase)return <div className="overlay account-overlay"><div className="account-modal"><button className="close" onClick={onClose}>×</button><h2>Backend setup needed</h2><p>Add your Supabase project URL and anon key to .env.local, then restart the app.</p></div></div>;
  const [mode,setMode]=useState("login"),[email,setEmail]=useState(""),[password,setPassword]=useState(""),[name,setName]=useState(""),[profile,setProfile]=useState(null),[rows,setRows]=useState([]),[adminRows,setAdminRows]=useState([]),[loading,setLoading]=useState(false),[message,setMessage]=useState(""),[tab,setTab]=useState("learning");
  const [newTitle,setNewTitle]=useState(""),[newPrice,setNewPrice]=useState("0"),[newCategory,setNewCategory]=useState("Development");
  useEffect(()=>{if(session)loadAccount()},[session]);
