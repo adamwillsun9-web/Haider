@@ -1,26 +1,20 @@
 # Skillnest
+React + Vite online learning platform.
 
-A responsive online-learning landing page built with React and Vite.
+## Frontend
+`npm install` then `npm run dev`.
 
-## Run locally
+## Supabase backend setup
+1. Create a Supabase project.
+2. In Supabase SQL Editor, run all SQL in `supabase/schema.sql`.
+3. Copy `.env.example` to `.env.local` and set your project URL and anon/publishable key.
+4. In Supabase Authentication settings, configure your site URL and allowed redirect URLs.
+5. Create your account through the site. To grant admin access, run the final commented SQL statement in the SQL editor with your admin email.
 
-```bash
-npm install
-npm run dev
-```
+Included: email/password signup and login, student enrollment dashboard, free-course enrollment, course completion status, admin course publishing and enrollment overview. Row Level Security protects student data.
 
-## Build
+## Payments
+Paid-course checkout is intentionally not enabled until the owner selects a payment provider and supplies merchant credentials. Never put secret keys in frontend environment variables.
 
-```bash
-npm run build
-```
-
-## Included
-- Responsive landing page
-- Course search and category filters
-- Free / paid course filters
-- Course detail modal and demo enrollment interactions
-- Instructor, benefits, testimonial and newsletter sections
-
-## Important
-Authentication, real payment processing, course video hosting, persistent student progress, and admin management are not connected yet. They require a backend and provider credentials.
+## Production
+Set environment variables in your hosting provider. Enable email confirmation and configure SMTP before launch.
